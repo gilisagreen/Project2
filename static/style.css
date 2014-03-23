@@ -21,7 +21,6 @@ body {
   margin-left: 150px;
   margin-top: 40px;
   margin-bottom: 40px;
-  cursor: hand;
 }
 
 /* For modern browsers */
@@ -132,10 +131,10 @@ img{
 
 
 /* styling for the save button */
-.blue {
-    float: left;
-    font: 16px Arial;
-    letter-spacing:.5px;
+#save {
+    display: block;
+    font: bold 16px Arial;
+    letter-spacing:;
     text-decoration: none;
     margin: 20px auto;
     padding: 20px 30px 20px 25px;
@@ -157,9 +156,7 @@ img{
     cursor: hand;
   }
 
-#save:hover,
-#Player1:hover,
-#Players:hover {
+#save:hover {
     -moz-border-radius-topleft: 30px 50px;
     -moz-border-radius-topright: 30px 50px;
     -moz-border-radius-bottomright: 30px 50px;
@@ -169,25 +166,25 @@ img{
     border-top-right-radius: 30px 50px;
     border-bottom-right-radius: 30px 50px;}
     
-.blue span{
+#save span {
     display: block;
     margin: 2px 0 0;
     font: oblique bold 11px verdana;}
 
 .button2 {
     text-decoration: none;
-    font: 13px Arial;
-    margin-bottom: -5px;
-    margin: 10px auto;
-    padding: 10px 14px;
+    font: bold 13px Arial;
+    display: block;
+    margin: 20px auto;
+    padding: 6px 14px;
     -moz-border-radius: 15px;
     border-radius: 15px;
+    width: 100px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    }
+    transition: all 0.5s ease;}
 
 .button2:hover {
     -moz-border-radius: 5px;
@@ -195,7 +192,6 @@ img{
 
 
 .blue {
-    margin-right: 20px;
     color: #fff;
     background: #48C9FF;
     background: -webkit-linear-gradient(top, #48C9FF 0%, #2EA8E5 100%);
@@ -227,19 +223,12 @@ img{
 
 /* welcome user styling */
 
-#welcome, #playerturn {
+#welcome {
  
-  color: white;
+  color: green;
   text-transform: uppercase;
-  /*text-shadow: -1px -1px 1px #000000, 1px 1px 1px #CCCCCC;*/
+  text-shadow: -1px -1px 1px #000000, 1px 1px 1px #CCCCCC;
   text-align: center;
   margin: 20px;
 
 }
-
-.buttons{
-  width:700px;
-  margin: 0px auto;
-}
-
-
