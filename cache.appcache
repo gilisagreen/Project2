@@ -11,8 +11,10 @@ CACHE MANIFEST
 /static/7_of_spades.png
 /static/style.css
 /static/card_back.jpg
-/static/cards.js
 /static/card_flip.mp3
+/static/twoplayer.js
+/static/jquery.min.js
+/static/prototype.js
 //www.freesound.org/data/previews/131/131660_2398403-lq.mp3
 //audiomicro-dev.s3.amazonaws.com/preview/532096/e3d80dbecad1674
 //2.s3.envato.com/files/42887508/preview.mp3

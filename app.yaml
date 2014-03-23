@@ -8,7 +8,7 @@
 # id.
 # url is project.gg620042465.appspot.com
 application: gg620042465
-version: project2
+version: project3
 runtime: python27
 api_version: 1
 threadsafe: yes

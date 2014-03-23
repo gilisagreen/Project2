@@ -1,13 +1,13 @@
 <html manifest="cache.appcache">
 <head>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-	<script src="{{ url_for('static', filename='cards.js') }}"></script>
+	<script src="{{ url_for('static', filename='twoplayer.js') }}"></script>
 	<script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='prototype.js') }}"></script>
 </head>
 
 <body>
-	<div id="welcome">
+	<div id="playerturn">
 		
 	</div>
 
@@ -143,16 +143,22 @@
 		</div>
 	</div>
 
-	<div>
+	<div class="buttons">
 		
-		<a style="cursor:hand;" id="save"class="blue">
+		<a style="cursor:hand;" id="save"class="button2 blue">
     		Save
     <span>Play again later.</span>
 </a>
-<!-- 
-<a href="#" class="button2 blue">
-    Create Account
-</a> -->
+
+<a class="button2 blue" id="newgame">
+    New Game
+    <span>Start over.</span>
+</a>
+
+<a class="button2 blue" id="stats">
+   Stats
+   <span>What's your ratings?</span>
+</a>
 	</div>
 	
 

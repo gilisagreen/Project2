@@ -15,7 +15,16 @@ app = Flask(__name__.split('.')[0])
 @app.route('/')
 def memory(name=None):
   """ Return hello template at application root URL."""
-  return render_template('memory.html')
+  return render_template('welcome.html')
+
+
+@app.route('/oneplayer')
+def oneplayer(name=None):
+  return render_template('oneplayer.html')
+
+@app.route('/twoplayer')
+def twoplayer(name=None):
+  return render_template('twoplayer.html')
 
 @app.route('/cache.appcache')
 def cache(name=None):

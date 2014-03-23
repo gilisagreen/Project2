@@ -14,7 +14,9 @@ if (typeof(localStorage.player) == 'undefined'){
       localStorage.player=JSON.stringify(
     {   
         name: user,
-        turns: 0
+        turns: 0,
+        win: 0,
+        lose: 0
     })
  
 }//end if 
@@ -27,7 +29,7 @@ if (typeof(localStorage.player) == 'undefined'){
     } //end else
 
 //places play info into a variable for itself
-var playerdata = JSON.parse(localStorage.player); 
+var playerdata = JSON.parse(localStorage.player);
 
 //check if user has played before and adjust game accordingly
 if (playerdata['turns'] != 0){
@@ -48,6 +50,25 @@ $('save').addEventListener("click", function(){
     localStorage.player=JSON.stringify(playerdata);
 
     alert("Your progress have been saved! When you return, you will start exactly where you left off!");    
+    })
+
+
+$('newgame').addEventListener("click", function(){
+        var r=confirm("Are you sure you want to quit?");
+    if (r==true)
+      {
+    count = 0;
+            playerdata.turns = count;
+            playerdata['lose'] += 1;
+            localStorage.player=JSON.stringify(playerdata);
+      newg();
+      }     
+    })
+
+$('stats').addEventListener("click", function(){
+     alert('Player: ' + playerdata['name'] 
+            + '\n' + 'Wins: ' + playerdata['win'] + ' times' +
+            '\n' + 'Lose: ' + playerdata.lose + ' times');
     })
 } //end of window.onload function 
 
@@ -81,52 +102,11 @@ var F = function(e){
     else {
         e.classList.add('v');
         }
+    win();
 
-
-//check if you have completed the game - all cards are turned over or matched
-    if(document.body.getElementsByClassName('p').length == 16){
-        //play audio and alert user that they have won the game      
-        var win = new Audio('http://audiomicro-dev.s3.amazonaws.com/preview/532096/e3d80dbecad1674');
-            win.play();
-        alert("You Win!");
-
-    //reset the game
-        startover = document.body.getElementsByClassName('w');
-        for (var i = 0; i < startover.length; i++) {
-            startover[i].className = "w";
-        };
-
-    //reset the count and then update the playerdata and localStorage
-            count = 0;
-            playerdata.turns = count;
-            playerdata.win += 1;
-            localStorage.player=JSON.stringify(playerdata);
-
-            }
-    
- 
- //check if the player has ran out of turns and resets the game   
     if (count==24){
-        //play audio and alert user that they have lost the game 
-        var lose = new Audio('http://2.s3.envato.com/files/42887508/preview.mp3');
-        lose.play();
-        alert("Sorry! Try Again.");
-
-        //turn everything back over and reset the game
-        startover = document.body.getElementsByClassName('w');
-        for (var i = 0; i < startover.length; i++) {
-            startover[i].className = "w";
-        };
-        
-    //reset the count, update the playerdata and localStorage and shuffle cards
-        count = 0;
-        playerdata.turns = count;
-        playerdata.lose += 1;
-        localStorage.player=JSON.stringify(playerdata);
-        shuffle();
+    lose();
     }
-
-    
 }
 
 function shuffle(){
@@ -142,4 +122,51 @@ function shuffle(){
             puzzle[numArray[j]].innerHTML = test;
             numArray[j] = x;
     }
+}
+
+function lose(){
+
+    //check if the player has ran out of turns and resets the game   
+    
+        //play audio and alert user that they have lost the game 
+        var lose = new Audio('http://2.s3.envato.com/files/42887508/preview.mp3');
+        lose.play();
+        alert("Sorry! Try Again.");
+
+        //reset the count and then update the playerdata and localStorage
+            count = 0;
+            playerdata.turns = count;
+            playerdata['lose'] += 1;
+            localStorage.player=JSON.stringify(playerdata);
+
+        newg();
+}
+
+function win(){
+
+//check if you have completed the game - all cards are turned over or matched
+    if(document.body.getElementsByClassName('p').length == 16){
+        //play audio and alert user that they have won the game      
+        var win = new Audio('http://audiomicro-dev.s3.amazonaws.com/preview/532096/e3d80dbecad1674');
+            win.play();
+        alert("You Win!");
+
+    //reset the count and then update the playerdata and localStorage
+            count = 0;
+            playerdata.turns = count;
+            playerdat['win'] += 1;
+            localStorage.player=JSON.stringify(playerdata);
+
+       newg();
+
+            }
+}
+
+function newg(){
+    //reset the game
+        startover = document.body.getElementsByClassName('w');
+        for (var i = 0; i < startover.length; i++) {
+            startover[i].className = "w";
+        };
+    shuffle();
 }
